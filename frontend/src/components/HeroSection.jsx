@@ -1,5 +1,5 @@
 import React from "react";
-import heroImage from "../assets/hero-img.png"; // replace with your image
+import heroImage from "../assets/Person-image.png"; // using existing image
 
 const HeroSection = () => {
   return (
