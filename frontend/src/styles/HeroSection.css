@@ -1,0 +1,17 @@
+.hero-bg {
+  background: linear-gradient(180deg, #6a2de3 0%, #7b4eff 100%);
+  position: relative;
+  isolation: isolate; /* ensures pseudo-element layers correctly */
+}
+
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  bottom: -80px;
+  left: 0;
+  width: 100%;
+  height: 160px;
+  background: rgba(123, 78, 255, 0.6);
+  filter: blur(100px);
+  z-index: 0; /* behind everything */
+}
