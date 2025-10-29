@@ -12,7 +12,7 @@ import OneOnOneSection from './components/OneOnOneSection';
 import ExploreCoursesSection from './components/ExploreCoursesSection';
 import TestimonialSection from './components/TestimonialSection';
 import Footer from './components/Footer';
-
+import ContactPopup from './components/ContactPopup';
 
 
 function App() {
@@ -31,6 +31,7 @@ function App() {
       <section id="explorecoursessection"><ExploreCoursesSection /></section>
       <TestimonialSection />
       <section id="footer"><Footer /></section>
+      <ContactPopup />
 
     </div>
   );
