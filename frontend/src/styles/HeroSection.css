@@ -1,17 +1,66 @@
 .hero-bg {
-  background: linear-gradient(180deg, #6a2de3 0%, #7b4eff 100%);
+  background: linear-gradient(180deg, #7c3aed 0%, #8b5cf6 40%, #7c3aed 70%);
   position: relative;
-  isolation: isolate; /* ensures pseudo-element layers correctly */
+  overflow: hidden;
 }
 
+/* big outward purple glow */
 .hero-bg::after {
   content: "";
   position: absolute;
-  bottom: -80px;
-  left: 0;
-  width: 100%;
-  height: 160px;
-  background: rgba(123, 78, 255, 0.6);
-  filter: blur(100px);
-  z-index: 0; /* behind everything */
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -450px; /* moved further down */
+  width: 2400px;
+  height: 1500px;
+  background: radial-gradient(circle at 50% 80%,
+              rgba(138,78,255,0.95) 0%,
+              rgba(124,58,237,0.9) 30%,
+              rgba(124,58,237,0.6) 55%,
+              rgba(255,255,255,0) 90%);
+  border-radius: 50%;
+  z-index: 10;
+  filter: blur(32px);
+  pointer-events: none;
+}
+
+/* subtle dark inward curve at bottom */
+.bottom-curve {
+  position: absolute;
+  bottom: -130px; /* moved lower */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150%;
+  height: 280px;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(90, 40, 200, 0.8) 0%,
+    rgba(70, 30, 160, 0.6) 50%,
+    rgba(60, 20, 120, 0.3) 75%,
+    rgba(40, 0, 100, 0) 100%
+  );
+  border-radius: 50%;
+  filter: blur(16px);
+  z-index: 15;
+  pointer-events: none;
+}
+
+/* optional shadow depth below glow */
+.hero-bg::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -130px;
+  width: 1200px;
+  height: 260px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0));
+  border-radius: 50%;
+  z-index: 9;
+  filter: blur(16px);
+  pointer-events: none;
+}
+
+.container, .container * {
+  position: relative;
 }
