@@ -1,4 +1,6 @@
 import React from "react";
+import { BookOpen } from "lucide-react";
+import { Mail } from "lucide-react";
 import heroImage from "../assets/Person-image.png";
 import "../styles/HeroSection.css"; // ensure path is correct
 
@@ -34,28 +36,28 @@ const HeroSection = () => {
         </div>
 
         {/* === RIGHT IMAGE & FLOATING CARDS === */}
-        <div className="flex-1 flex justify-center md:justify-end relative z-40">
+        <div className="flex-1 flex justify-center md:justify-end relative z-500">
           <img
             src={heroImage}
             alt="Student learning"
-            className="w-[340px] md:w-[420px] lg:w-[480px] relative z-40"
+            className="w-[20px] md:w-[310px] lg:w-[470px] relative z-40 scale-125 md:scale-150 translate-y-16 md:-translate-x-20"
           />
 
           {/* Congratulations Card */}
-          <div className="absolute top-5 right-0 bg-white text-gray-900 rounded-2xl px-5 py-4 shadow-2xl flex items-center gap-3 w-[250px] z-50">
-            <div className="bg-orange-100 p-2 rounded-lg">
-              <span className="text-orange-500 text-lg">✉️</span>
-            </div>
-            <div>
-              <p className="font-semibold text-sm">Congratulations</p>
-              <p className="text-xs text-gray-500">Your admission completed</p>
-            </div>
+        <div className="absolute top-5 right-0 bg-white text-gray-900 rounded-2xl px-5 py-4 shadow-2xl flex items-center gap-3 w-[250px] z-50">
+          <div className="bg-orange-100 p-2 rounded-lg">
+            <Mail className="text-orange-500 w-5 h-5" />
           </div>
+          <div>
+            <p className="font-semibold text-sm">Congratulations</p>
+            <p className="text-xs text-gray-500">Your admission completed</p>
+          </div>
+        </div>
 
           {/* Assisted Students Card */}
           <div className="absolute top-[40%] left-[-40px] bg-white text-gray-900 rounded-2xl px-5 py-4 shadow-2xl flex items-center gap-3 w-[230px] z-50">
             <div className="bg-blue-100 p-2 rounded-lg">
-              <span className="text-blue-500 text-lg">📘</span>
+              <BookOpen className="text-blue-500 w-5 h-5" />
             </div>
             <div>
               <p className="font-semibold text-sm">250+</p>
@@ -67,12 +69,12 @@ const HeroSection = () => {
           <div className="absolute bottom-0 left-[30px] bg-white text-gray-900 rounded-2xl px-6 py-5 shadow-2xl flex flex-col items-start w-[270px] z-50">
             <div className="flex items-center gap-2">
               <span className="h-3 w-3 bg-green-400 rounded-full"></span>
-              <p className="font-semibold text-sm">User Experience</p>
+              <p className="font-semibold text-sm">User Experience Session!</p>
             </div>
             <p className="text-xs text-gray-500">Today at 12.00 PM</p>
-            <button className="mt-3 bg-blue-500 text-white text-xs px-4 py-2 rounded-lg hover:bg-blue-600 transition">
+            {/* <button className="mt-3 bg-blue-500 text-white text-xs px-4 py-2 rounded-lg hover:bg-blue-600 transition">
               Join Now
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
