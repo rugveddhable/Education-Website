@@ -1,6 +1,7 @@
 import React from "react";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-scroll";
+import { Link as RouterLink } from "react-router-dom";
 import logo from "../assets/mylogo.png";
 import profilePic from "../assets/lina.png";
 
@@ -24,18 +25,18 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Middle - Smooth Scroll Nav Links */}
+      {/* Middle - Nav Links */}
       <ul className="hidden md:flex items-center gap-16 font-medium">
         <li>
-          <Link
-            to="home"
+          <RouterLink
+            to="/"
             smooth={true}
             duration={600}
             offset={-100}
             className="hover:text-yellow-300 cursor-pointer transition"
           >
             Home
-          </Link>
+          </RouterLink>
         </li>
         <li>
           <Link
@@ -60,26 +61,12 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link
-            to="toolsforstudents"
-            smooth={true}
-            duration={600}
-            offset={-100}
+          <RouterLink
+            to="/career-placement"
             className="hover:text-yellow-300 cursor-pointer transition"
           >
-            TOS
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="oneononesection"
-            smooth={true}
-            duration={600}
-            offset={-100}
-            className="hover:text-yellow-300 cursor-pointer transition"
-          >
-            OOO
-          </Link>
+            Career & Placement
+          </RouterLink>
         </li>
         <li>
           <Link
@@ -91,8 +78,8 @@ const Navbar = () => {
           >
             Explore Courses
           </Link>
-          </li>
-          <li>
+        </li>
+        <li>
           <Link
             to="footer"
             smooth={true}
