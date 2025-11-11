@@ -1,8 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useContactPopup } from "../App";
 import discussionImg from "../assets/one-on-one.png"; // your uploaded image path
 
 const OneOnOneSection = () => {
+  const { openPopup } = useContactPopup();
   return (
     <section className="py-28 px-6 md:px-20 flex flex-col md:flex-row items-center justify-between gap-20 bg-white relative overflow-hidden">
       {/* Left Image */}
@@ -34,7 +36,10 @@ const OneOnOneSection = () => {
           real-world readiness.
         </p>
 
-        <button className="text-lg font-semibold px-8 py-3 rounded-full border-2 border-purple-500 text-purple-600 hover:bg-purple-500 hover:text-white transition">
+        <button
+          onClick={openPopup}
+          className="text-lg font-semibold px-8 py-3 rounded-full border-2 border-purple-500 text-purple-600 hover:bg-purple-500 hover:text-white transition cursor-pointer"
+        >
           See more features
         </button>
       </div>

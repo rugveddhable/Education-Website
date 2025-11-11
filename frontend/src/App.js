@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, createContext, useContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 
@@ -21,41 +21,58 @@ import ContactPopup from "./components/ContactPopup";
 // Pages
 import CareerPlacement from "./pages/CareerPlacement";
 
+// Create Context for Contact Popup
+const ContactPopupContext = createContext();
+
+export const useContactPopup = () => {
+  const context = useContext(ContactPopupContext);
+  if (!context) {
+    throw new Error('useContactPopup must be used within ContactPopupProvider');
+  }
+  return context;
+};
+
 function App() {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const openPopup = () => setIsPopupOpen(true);
+  const closePopup = () => setIsPopupOpen(false);
   return (
-    <Router>
-      <div className="App">
-        <Navbar />
+    <ContactPopupContext.Provider value={{ openPopup, closePopup }}>
+      <Router>
+        <div className="App">
+          <Navbar />
 
-        {/* Define Routes */}
-        <Routes>
-          {/* Main Home Page */}
-          <Route
-            path="/"
-            element={
-              <>
-                <section id="home"><Home /></section>
-                <SuccessSection />
-                <CareerManagement />
-                <section id="aboutcta"><AboutCTA /></section>
-                <section id="learnwithcta"><LearnWithCTA /></section>
-                <Features />
-                <section id="toolsforstudents"><ToolsForStudents /></section>
-                <ScoreboardSection />
-                <section id="oneononesection"><OneOnOneSection /></section>
-                <section id="explorecoursessection"><ExploreCoursesSection /></section>
-                <TestimonialSection />
-                <section id="footer"><Footer /></section>
-                <ContactPopup />
-              </>
-            }
-          />
+          {/* Define Routes */}
+          <Routes>
+            {/* Main Home Page */}
+            <Route
+              path="/"
+              element={
+                <>
+                  <section id="home"><Home /></section>
+                  <SuccessSection />
+                  <CareerManagement />
+                  <section id="aboutcta"><AboutCTA /></section>
+                  <section id="learnwithcta"><LearnWithCTA /></section>
+                  <Features />
+                  <section id="toolsforstudents"><ToolsForStudents /></section>
+                  <ScoreboardSection />
+                  <section id="oneononesection"><OneOnOneSection /></section>
+                  <section id="explorecoursessection"><ExploreCoursesSection /></section>
+                  <TestimonialSection />
+                  <section id="footer"><Footer /></section>
+                  <ContactPopup isOpen={isPopupOpen} onClose={closePopup} />
+                </>
+              }
+            />
 
-          {/* Career Placement Page */}
-          <Route path="/career-placement" element={<CareerPlacement />} />
-        </Routes>
-      </div>
-    </Router>
+            {/* Career Placement Page */}
+            <Route path="/career-placement" element={<CareerPlacement />} />
+          </Routes>
+        </div>
+      </Router>
+    </ContactPopupContext.Provider>
   );
 }
 

@@ -1,8 +1,57 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import googleLogo from "../assets/google.png";
 import tcsLogo from "../assets/tcs.png";
 import cognizantLogo from "../assets/cognizant.png";
 import infosysLogo from "../assets/infosys.png";
+
+const CounterAnimation = ({ target, suffix = "", label }) => {
+  const [count, setCount] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const elementRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          
+          let start = 0;
+          const increment = target / 100;
+          const duration = 1500; // 2 seconds
+          const stepTime = duration / 100;
+
+          const timer = setInterval(() => {
+            start += increment;
+            if (start >= target) {
+              setCount(target);
+              clearInterval(timer);
+            } else {
+              setCount(Math.floor(start));
+            }
+          }, stepTime);
+
+          return () => clearInterval(timer);
+        }
+      },
+      { threshold: 0.7 }
+    );
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [target, hasAnimated]);
+
+  return (
+    <div ref={elementRef}>
+      <h3 className="text-7xl font-bold text-blue-600">
+        {count}{suffix}
+      </h3>
+      <p className="text-xl text-gray-600 mt-3">{label}</p>
+    </div>
+  );
+};
 
 const SuccessSection = () => {
   return (
@@ -10,24 +59,12 @@ const SuccessSection = () => {
       {/* Title */}
       <h2 className="text-5xl font-extrabold mb-16 text-gray-900">Our Success</h2>
 
-      {/* Stats */}
+      {/* Stats with Animated Counters */}
       <div className="flex flex-wrap justify-center gap-20 mb-16">
-        <div>
-          <h3 className="text-7xl font-bold text-blue-600">100+</h3>
-          <p className="text-xl text-gray-600 mt-3">Students</p>
-        </div>
-        <div>
-          <h3 className="text-7xl font-bold text-blue-600">85%</h3>
-          <p className="text-xl text-gray-600 mt-3">Total Success</p>
-        </div>
-        <div>
-          <h3 className="text-7xl font-bold text-blue-600">50+</h3>
-          <p className="text-xl text-gray-600 mt-3">Courses</p>
-        </div>
-        <div>
-          <h3 className="text-7xl font-bold text-blue-600">17+</h3>
-          <p className="text-xl text-gray-600 mt-3">Years of Experience</p>
-        </div>
+        <CounterAnimation target={100} suffix="+" label="Students" />
+        <CounterAnimation target={85} suffix="%" label="Total Success" />
+        <CounterAnimation target={50} suffix="+" label="Courses" />
+        <CounterAnimation target={17} suffix="+" label="Years of Experience" />
       </div>
 
       {/* Trusted by */}

@@ -1,4 +1,5 @@
 import React from "react";
+import { CreditCard, Calendar, Headphones } from "lucide-react";
 
 const CareerManagement = () => {
   return (
@@ -18,7 +19,9 @@ const CareerManagement = () => {
         {/* Card 1 */}
         <div className="bg-white rounded-3xl shadow-lg p-10 max-w-xs hover:shadow-2xl transition">
           <div className="flex justify-center mb-6">
-            <div className="w-20 h-20 bg-blue-500 rounded-full"></div>
+            <div className="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center">
+              <CreditCard className="text-white w-10 h-10" />
+            </div>
           </div>
           <h3 className="text-xl font-semibold mb-3">
             Online Admission & Billing
@@ -32,7 +35,9 @@ const CareerManagement = () => {
         {/* Card 2 */}
         <div className="bg-white rounded-3xl shadow-lg p-10 max-w-xs hover:shadow-2xl transition">
           <div className="flex justify-center mb-6">
-            <div className="w-20 h-20 bg-indigo-500 rounded-full"></div>
+            <div className="w-20 h-20 bg-indigo-500 rounded-full flex items-center justify-center">
+              <Calendar className="text-white w-10 h-10" />
+            </div>
           </div>
           <h3 className="text-xl font-semibold mb-3">
             Class Scheduling & Attendance
@@ -46,7 +51,9 @@ const CareerManagement = () => {
         {/* Card 3 */}
         <div className="bg-white rounded-3xl shadow-lg p-10 max-w-xs hover:shadow-2xl transition">
           <div className="flex justify-center mb-6">
-            <div className="w-20 h-20 bg-blue-500 rounded-full"></div>
+            <div className="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center">
+              <Headphones className="text-white w-10 h-10" />
+            </div>
           </div>
           <h3 className="text-xl font-semibold mb-3">
             Contact Admission & Support

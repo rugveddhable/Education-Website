@@ -114,10 +114,10 @@ const Navbar = () => {
             This website is currently <b>under maintenance</b>. Some features may not work properly.  
             For enquiries, contact us at{" "}
             <a
-              href="mailto:contact@yourcompany.com"
+              href="tel:+917066600893"
               className="underline text-yellow-200 hover:text-yellow-100 transition"
             >
-              hr@careertechacademy.in
+              +91 7066600893
             </a>
           </span>
         </div>

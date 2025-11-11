@@ -1,14 +1,18 @@
 import React, { useEffect, useState, useRef } from "react";
 import emailjs from "emailjs-com";
 
-const ContactPopup = () => {
+const ContactPopup = ({ isOpen = false, onClose = () => {} }) => {
   const [showPopup, setShowPopup] = useState(false);
   const formRef = useRef();
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowPopup(true), 3000);
-    return () => clearTimeout(timer);
-  }, []);
+    if (isOpen) {
+      setShowPopup(true);
+    } else {
+      const timer = setTimeout(() => setShowPopup(true), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen]);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -24,6 +28,7 @@ const ContactPopup = () => {
         (result) => {
           alert("Message sent successfully!");
           setShowPopup(false);
+          onClose();
         },
         (error) => {
           alert("Failed to send message. Try again later.");
@@ -41,7 +46,10 @@ const ContactPopup = () => {
                       animate-[fadeIn_0.5s_ease]">
         {/* Close Button */}
         <button
-          onClick={() => setShowPopup(false)}
+          onClick={() => {
+            setShowPopup(false);
+            onClose();
+          }}
           className="absolute top-4 right-6 text-white text-2xl font-bold hover:scale-110 transition"
         >
           ✕

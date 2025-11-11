@@ -1,7 +1,9 @@
 import React from "react";
+import { useContactPopup } from "../App";
 import classroomImg from "../assets/classroom.png"; // your image path
 
 const LearnWithCTA = () => {
+  const { openPopup } = useContactPopup();
   return (
     <section className="bg-gradient-to-b from-white to-indigo-50 py-32 px-8 md:px-28 flex flex-col md:flex-row items-center justify-between gap-20 rounded-[2rem] shadow-lg">
       {/* Left Text Section */}
@@ -23,12 +25,12 @@ const LearnWithCTA = () => {
           <span className="text-indigo-600 font-semibold"> industry-ready</span>.
         </p>
 
-        <a
-          href="/learn-more"
-          className="inline-flex items-center gap-3 text-2xl font-semibold text-white bg-indigo-600 px-10 py-4 rounded-full shadow-md hover:bg-indigo-700 transition-all duration-300"
+        <button
+          onClick={openPopup}
+          className="inline-flex items-center gap-3 text-2xl font-semibold text-white bg-indigo-600 px-10 py-4 rounded-full shadow-md hover:bg-indigo-700 transition-all duration-300 cursor-pointer"
         >
           Learn More <span className="text-3xl">→</span>
-        </a>
+        </button>
       </div>
 
       {/* Right Image Section */}
