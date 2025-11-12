@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { Star, ChevronRight } from "lucide-react";
 import { useState } from "react";
 
 export default function TestimonialSection() {
@@ -28,10 +28,6 @@ export default function TestimonialSection() {
 
   const nextTestimonial = () => {
     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
   return (
