@@ -3,16 +3,17 @@ import emailjs from "emailjs-com";
 
 const ContactPopup = ({ isOpen = false, onClose = () => {} }) => {
   const [showPopup, setShowPopup] = useState(false);
+  const [hasBeenManuallyClosed, setHasBeenManuallyClosed] = useState(false);
   const formRef = useRef();
 
   useEffect(() => {
     if (isOpen) {
       setShowPopup(true);
-    } else {
+    } else if (!hasBeenManuallyClosed) {
       const timer = setTimeout(() => setShowPopup(true), 3000);
       return () => clearTimeout(timer);
     }
-  }, [isOpen]);
+  }, [isOpen, hasBeenManuallyClosed]);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -28,6 +29,7 @@ const ContactPopup = ({ isOpen = false, onClose = () => {} }) => {
         (result) => {
           alert("Message sent successfully!");
           setShowPopup(false);
+          setHasBeenManuallyClosed(true);
           onClose();
         },
         (error) => {
@@ -48,6 +50,7 @@ const ContactPopup = ({ isOpen = false, onClose = () => {} }) => {
         <button
           onClick={() => {
             setShowPopup(false);
+            setHasBeenManuallyClosed(true);
             onClose();
           }}
           className="absolute top-4 right-6 text-white text-2xl font-bold hover:scale-110 transition"

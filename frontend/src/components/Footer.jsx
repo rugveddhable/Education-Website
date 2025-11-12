@@ -1,4 +1,9 @@
+import React from "react";
+import { Link } from "react-scroll";
+import { useContactPopup } from "../App";
+
 export default function Footer() {
+  const { openPopup } = useContactPopup();
   return (
     <footer className="bg-[#262866] text-white py-16 px-[10%]">
       <div className="max-w-7xl mx-auto space-y-12">
@@ -25,11 +30,61 @@ export default function Footer() {
             <div>
               <h3 className="text-lg font-semibold mb-4 text-white">Web Development</h3>
               <ul className="space-y-2">
-                <li>Web Development</li>
-                <li>JavaScript</li>
-                <li>React JS</li>
-                <li>Angular</li>
-                <li>Java</li>
+                <li>
+                  <Link
+                    to="explorecoursessection"
+                    smooth={true}
+                    duration={600}
+                    offset={-100}
+                    className="hover:text-yellow-300 cursor-pointer transition"
+                  >
+                    Web Development
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="explorecoursessection"
+                    smooth={true}
+                    duration={600}
+                    offset={-100}
+                    className="hover:text-yellow-300 cursor-pointer transition"
+                  >
+                    JavaScript
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="explorecoursessection"
+                    smooth={true}
+                    duration={600}
+                    offset={-100}
+                    className="hover:text-yellow-300 cursor-pointer transition"
+                  >
+                    React JS
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="explorecoursessection"
+                    smooth={true}
+                    duration={600}
+                    offset={-100}
+                    className="hover:text-yellow-300 cursor-pointer transition"
+                  >
+                    Angular
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="explorecoursessection"
+                    smooth={true}
+                    duration={600}
+                    offset={-100}
+                    className="hover:text-yellow-300 cursor-pointer transition"
+                  >
+                    Java
+                  </Link>
+                </li>
               </ul>
             </div>
 
@@ -37,11 +92,61 @@ export default function Footer() {
             <div>
               <h3 className="text-lg font-semibold mb-4 text-white">Data Science</h3>
               <ul className="space-y-2">
-                <li>Data Science</li>
-                <li>Python</li>
-                <li>Machine Learning</li>
-                <li>ChatGPT</li>
-                <li>Deep Learning</li>
+                <li>
+                  <Link
+                    to="explorecoursessection"
+                    smooth={true}
+                    duration={600}
+                    offset={-100}
+                    className="hover:text-yellow-300 cursor-pointer transition"
+                  >
+                    Data Science
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="explorecoursessection"
+                    smooth={true}
+                    duration={600}
+                    offset={-100}
+                    className="hover:text-yellow-300 cursor-pointer transition"
+                  >
+                    Python
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="explorecoursessection"
+                    smooth={true}
+                    duration={600}
+                    offset={-100}
+                    className="hover:text-yellow-300 cursor-pointer transition"
+                  >
+                    Machine Learning
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="explorecoursessection"
+                    smooth={true}
+                    duration={600}
+                    offset={-100}
+                    className="hover:text-yellow-300 cursor-pointer transition"
+                  >
+                    ChatGPT
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="explorecoursessection"
+                    smooth={true}
+                    duration={600}
+                    offset={-100}
+                    className="hover:text-yellow-300 cursor-pointer transition"
+                  >
+                    Deep Learning
+                  </Link>
+                </li>
               </ul>
             </div>
 
@@ -85,9 +190,33 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-white">About</h3>
             <ul className="space-y-2">
-              <li>About Us</li>
-              <li>Careers</li>
-              <li>Contact Us</li>
+              <li>
+                <Link
+                  to="aboutcta"
+                  smooth={true}
+                  duration={600}
+                  offset={-100}
+                  className="hover:text-yellow-300 cursor-pointer transition"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/career-placement"
+                  className="hover:text-yellow-300 cursor-pointer transition"
+                >
+                  Careers
+                </Link>
+              </li>
+              <li>
+                <button
+                  onClick={openPopup}
+                  className="hover:text-yellow-300 cursor-pointer transition text-left"
+                >
+                  Contact Us
+                </button>
+              </li>
             </ul>
           </div>
           <div>

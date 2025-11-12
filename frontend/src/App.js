@@ -17,6 +17,7 @@ import ExploreCoursesSection from "./components/ExploreCoursesSection";
 import TestimonialSection from "./components/TestimonialSection";
 import Footer from "./components/Footer";
 import ContactPopup from "./components/ContactPopup";
+import CourseDetailPage from "./components/CourseDetailPage";
 
 // Pages
 import CareerPlacement from "./pages/CareerPlacement";
@@ -38,7 +39,7 @@ function App() {
   const openPopup = () => setIsPopupOpen(true);
   const closePopup = () => setIsPopupOpen(false);
   return (
-    <ContactPopupContext.Provider value={{ openPopup, closePopup }}>
+    <ContactPopupContext.Provider value={{ openPopup, closePopup, isPopupOpen }}>
       <Router>
         <div className="App">
           <Navbar />
@@ -69,6 +70,7 @@ function App() {
 
             {/* Career Placement Page */}
             <Route path="/career-placement" element={<CareerPlacement />} />
+            <Route path="/course/:id" element={<CourseDetailPage />} />
           </Routes>
         </div>
       </Router>

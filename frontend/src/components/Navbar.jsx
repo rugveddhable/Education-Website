@@ -2,10 +2,11 @@ import React from "react";
 import { FaSearch, FaExclamationTriangle } from "react-icons/fa";
 import { Link } from "react-scroll";
 import { Link as RouterLink } from "react-router-dom";
+import { useContactPopup } from "../App";
 import logo from "../assets/mylogo.png";
-import profilePic from "../assets/lina.png";
 
 const Navbar = () => {
+  const { openPopup } = useContactPopup();
   return (
     <nav
       className="fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-blue-950/95 backdrop-blur-md text-white 
@@ -28,7 +29,7 @@ const Navbar = () => {
         </div>
 
         {/* Middle - Nav Links */}
-        <ul className="hidden md:flex items-center gap-16 font-medium">
+        <ul className="hidden md:flex items-center gap-20 font-medium">
           <li>
             <RouterLink
               to="/"
@@ -82,27 +83,16 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link
-              to="footer"
-              smooth={true}
-              duration={600}
-              offset={-100}
-              className="hover:text-yellow-300 cursor-pointer transition"
+            <button
+              onClick={openPopup}
+              className="hover:text-yellow-300 cursor-pointer transition pr-16"
             >
               Contact Us
-            </Link>
+            </button>
           </li>
         </ul>
 
-        {/* Right - Profile */}
-        <div className="flex items-center gap-2">
-          <img
-            src={profilePic}
-            alt="Profile"
-            className="w-10 h-10 rounded-full border-2 border-yellow-400 object-cover"
-          />
-          <span className="font-semibold hidden sm:block">User ▾</span>
-        </div>
+        
       </div>
 
       {/* Integrated Maintenance Notice */}

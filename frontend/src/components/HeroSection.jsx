@@ -1,9 +1,12 @@
 import React from "react";
 import { BookOpen, Mail } from "lucide-react";
+import { Link } from "react-scroll";
+import { useContactPopup } from "../App";
 import heroImage from "../assets/Person-image.png";
 import "../styles/HeroSection.css"; // Ensure path is correct
 
 const HeroSection = () => {
+  const { openPopup } = useContactPopup();
   return (
     <section className="relative hero-bg text-white overflow-hidden">
       {/* ===== HERO CONTENT ===== */}
@@ -26,12 +29,21 @@ const HeroSection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-            <button className="bg-yellow-400 text-indigo-900 px-8 py-3 rounded-xl font-semibold hover:bg-yellow-300 transition text-sm sm:text-base">
+            <button 
+              onClick={openPopup}
+              className="bg-yellow-400 text-indigo-900 px-8 py-3 rounded-xl font-semibold hover:bg-yellow-300 transition text-sm sm:text-base"
+            >
               Get Started
             </button>
-            <button className="border border-white px-8 py-3 rounded-xl font-semibold hover:bg-white hover:text-indigo-700 transition text-sm sm:text-base">
+            <Link
+              to="explorecoursessection"
+              smooth={true}
+              duration={600}
+              offset={-100}
+              className="border border-white px-8 py-3 rounded-xl font-semibold hover:bg-white hover:text-indigo-700 transition text-sm sm:text-base cursor-pointer text-center"
+            >
               Explore Courses
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -41,11 +53,11 @@ const HeroSection = () => {
           <img
             src={heroImage}
             alt="Student learning"
-            className="w-56 sm:w-72 md:w-[310px] lg:w-[470px] relative z-40 transform md:scale-110 lg:scale-125 translate-y-6 sm:translate-y-12 md:-translate-x-10"
+            className="w-56 sm:w-72 md:w-[310px] lg:w-[470px] relative z-40 transform md:scale-110 lg:scale-150 translate-y-6 sm:translate-y-28 md:-translate-x-10"
           />
 
           {/* Congratulations Card */}
-          <div className="absolute top-2 sm:top-4 right-2 sm:right-0 bg-white text-gray-900 rounded-2xl px-4 sm:px-5 py-3 sm:py-4 shadow-2xl flex items-center gap-2 sm:gap-3 w-[200px] sm:w-[230px] md:w-[250px] z-50">
+          <div className="absolute top-2 sm:top-12 right-[-10px] sm:right-[-20px] md:right-[-30px] bg-white text-gray-900 rounded-2xl px-4 sm:px-5 py-3 sm:py-4 shadow-2xl flex items-center gap-2 sm:gap-3 w-[200px] sm:w-[230px] md:w-[250px] z-50">
             <div className="bg-orange-100 p-2 rounded-lg">
               <Mail className="text-orange-500 w-4 h-4 sm:w-5 sm:h-5" />
             </div>
