@@ -18,6 +18,7 @@ import TestimonialSection from "./components/TestimonialSection";
 import Footer from "./components/Footer";
 import ContactPopup from "./components/ContactPopup";
 import CourseDetailPage from "./components/CourseDetailPage";
+import ScrollToTop from "./components/ScrollToTop";
 
 // Pages
 import CareerPlacement from "./pages/CareerPlacement";
@@ -42,6 +43,7 @@ function App() {
     <ContactPopupContext.Provider value={{ openPopup, closePopup, isPopupOpen }}>
       <Router>
         <div className="App">
+          <ScrollToTop />
           <Navbar />
 
           {/* Define Routes */}

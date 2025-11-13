@@ -64,11 +64,19 @@ const CareerPlacement = () => {
     },
     {
       q: "Which companies do students get placed in?",
-      a: "Top companies like Capgemini, Tech Mahindra, Wipro, and Accenture hire our graduates.",
+      a: "Students get placed in top 4 reputed companies through our dedicated placement support.",
     },
     {
       q: "Is this support available for all courses?",
       a: "Yes, placement assistance is available for all eligible learners enrolled in our career programs.",
+    },
+    {
+      q: "Are the courses beginner-friendly?",
+      a: "Absolutely! Our courses are designed for both beginners and experienced learners, with step-by-step guidance from experts.",
+    },
+    {
+      q: "Do you provide certificates after course completion?",
+      a: "Yes, upon successful completion of the course, you’ll receive an industry-recognized certificate from us.",
     },
   ];
 
@@ -233,7 +241,7 @@ const CareerPlacement = () => {
           <img
             src={student}
             alt="Ayush"
-            className="relative w-64 md:w-72 h-auto object-contain drop-shadow-2xl"
+            className="relative w-64 md:w-72 h-auto object-contain drop-shadow-2xl pt-6"
           />
         </div>
             {/* Testimonial Card */}

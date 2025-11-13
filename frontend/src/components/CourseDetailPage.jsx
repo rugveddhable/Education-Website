@@ -3,7 +3,6 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Star } from "lucide-react";
 import { useContactPopup } from "../App";
-import ContactPopup from "./ContactPopup";
 import Hero from "../assets/Hero.png";
  
 //courseimg
@@ -107,7 +106,7 @@ const COURSE_DATA = {
 export default function CourseDetailPage() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { openPopup, closePopup, isPopupOpen } = useContactPopup();
+  const { openPopup } = useContactPopup();
   const course = COURSE_DATA[id];
  
   if (!course) {
@@ -217,7 +216,6 @@ export default function CourseDetailPage() {
           </div>
         </div>
       </section>
-      <ContactPopup isOpen={isPopupOpen} onClose={closePopup} />
     </div>
   );
 }
